@@ -15,7 +15,19 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { MatListModule } from '@angular/material/list';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { ChatComponent } from './components/chat/chat.component'
+import { ChatComponent } from './components/chat/chat.component';
+import { CdkDrag, CdkDropList, CdkDropListGroup, } from '@angular/cdk/drag-drop';
+import { DashboardItemComponent } from './components/dashboard-item/dashboard-item.component';
+import { FormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+import { CommentItemComponent } from './components/comment-item/comment-item.component';
+import { DialogComponent } from './components/dialog/dialog.component';
+import { DialogBodyComponent } from './components/dialog-body/dialog-body.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ColorPanelComponent } from './components/color-panel/color-panel.component';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -23,7 +35,12 @@ import { ChatComponent } from './components/chat/chat.component'
     UiComponent,
     SidenavComponent,
     DashboardComponent,
-    ChatComponent
+    ChatComponent,
+    DashboardItemComponent,
+    CommentItemComponent,
+    DialogComponent,
+    DialogBodyComponent,
+    ColorPanelComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +52,16 @@ import { ChatComponent } from './components/chat/chat.component'
     MatButtonModule,
     MatIconModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    CdkDrag,
+    CdkDropList,
+    CdkDropListGroup,
+    FormsModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatInputModule,
+    MatDialogModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

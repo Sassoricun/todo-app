@@ -1,0 +1,25 @@
+<div class="top">
+  <div>{{item.text}}</div>
+  <mat-icon class="icon-btn" color="primary" (click)="onCardDelete(item.id)">delete</mat-icon>
+</div>
+
+
+<div class="down">
+  <mat-icon class="icon" (click)="onCardItemEmit(item, false)" color="primary">thumb_down</mat-icon>
+  <mat-icon class="icon" (click)="onCardItemEmit(item, true)" color="primary">thumb_up</mat-icon>
+  <span class="num">{{item.like}}</span>
+  <mat-icon disableRipple class="icon" (click)="onOpenComment()" color="primary">chat</mat-icon>
+  <span class="num">{{item.comments.length}}</span>
+</div>
+
+<div *ngIf="open">
+  <mat-form-field>
+    <mat-label>Leave a comment</mat-label>
+    <textarea matInput [(ngModel)]="commentInput" (mousedown)="$event.stopPropagation()"></textarea>
+    <mat-icon *ngIf="commentInput" matSuffix mat-icon-button color="primary" class="icon-confirm"
+      (click)="onCommentTextEmit(item.id)">
+      done
+    </mat-icon>
+  </mat-form-field>
+  <ng-content></ng-content>
+</div>

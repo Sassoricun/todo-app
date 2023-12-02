@@ -1,0 +1,18 @@
+<!-- <div>
+  <div *ngFor="let color of colorsData">
+    <div [ngStyle]="{background: color}" class="color-panel-item" (click)="onColorEmit(color)"></div>
+  </div>
+</div> -->
+
+<div class="color-picker-container">
+  <div class="palette-icon" (click)="toggleColorPicker()">
+    <mat-icon color="white">invert_colors</mat-icon>
+  </div>
+
+
+  <div class="color-picker" [ngClass]="{'open': colorPickerOpen}">
+    <div *ngFor="let color of colorsData">
+      <div [ngStyle]="{background: color}" class="color-panel-item" (click)="onColorEmit(color)"></div>
+    </div>
+  </div>
+</div>

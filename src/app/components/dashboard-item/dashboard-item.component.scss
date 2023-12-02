@@ -1,0 +1,48 @@
+.top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 280px;
+  color: #607d8b;
+}
+
+.icon-btn {
+  cursor: pointer;
+}
+
+.icon-confirm {
+  cursor: pointer;
+}
+
+.down {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+}
+
+
+.icon {
+  margin-left: 8px;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+.num {
+  transform: translateX(5px);
+  transform: translateY(5px);
+  color: #607d8b;
+  width: 10px;
+  height: 10px;
+  font-size: 12px;
+  text-align: center;
+  margin-right: -0px;
+}
+
+div.ng-star-inserted {
+  margin-top: 20px;
+}
+
+.mat-mdc-form-field {
+  display: block;
+}
