@@ -17,7 +17,7 @@ enum colors {
 export class ColorPanelComponent implements OnInit {
   @Output() emitColor: EventEmitter<string> = new EventEmitter();
 
-  colorPickerOpen: boolean = false;  // Додайте змінну для відстеження відкриття/закриття
+  colorPickerOpen: boolean = false;
 
   colorsData = Object.values(colors)
 
@@ -32,9 +32,10 @@ export class ColorPanelComponent implements OnInit {
 
   onColorEmit(color: string) {
     this.emitColor.emit(color);
-    this.toggleColorPicker();  // Закриваємо вікно вибору кольору після вибору
+    this.toggleColorPicker();
   }
   toggleColorPicker() {
-    this.colorPickerOpen = !this.colorPickerOpen;  // Змінюємо стан відкриття/закриття
+    this.colorPickerOpen = !this.colorPickerOpen;
+
   }
 }
