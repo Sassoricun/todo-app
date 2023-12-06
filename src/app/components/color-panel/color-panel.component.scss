@@ -1,0 +1,39 @@
+.color-panel-item {
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.color-picker-container {
+  position: relative;
+}
+
+.color-picker {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+  z-index: 10;
+}
+
+.color-picker.open {
+  max-height: 300px;
+  opacity: 1;
+}
+
+.color-panel-item {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.palette-icon {
+  cursor: pointer;
+}
