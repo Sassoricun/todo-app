@@ -6,61 +6,7 @@ import { BehaviorSubject, map } from 'rxjs';
 })
 export class DashboardService {
   private initDashboard = [
-    {
-      id: 1,
-      title: 'To Do',
-      color: 'primary',
-      list: [
-        {
-          id: 1,
-          text: 'Example card item',
-          like: 1,
-          comments: [
-            {
-              id: 1,
-              text: 'Some comment'
-            }
-          ]
-        },
-        {
-          id: 2,
-          text: 'Example card item 222',
-          like: 1,
-          comments: [
-            {
-              id: 1,
-              text: 'Some comment'
-            }
-          ]
-        }
-      ]
-    },
-    {
-      id: 2,
-      title: 'In Progress',
-      color: 'primary',
-      list: [
-        {
-          id: 2,
-          text: 'Example card item',
-          like: 3,
-          comments: [
-            {
-              id: 1,
-              text: 'Some comment'
-            },
-            {
-              id: 2,
-              text: 'Some comment'
-            },
-            {
-              id: 3,
-              text: 'Some comment'
-            }
-          ]
-        }
-      ]
-    }
+
   ]
 
   private dasboard: any[] = this.initDashboard
@@ -107,7 +53,7 @@ export class DashboardService {
     this.dashboard$.next([...this.dasboard]);
   }
 
-  deleteColumn(columnId) {
+  deleteColumn(columnId: number) {
     this.dasboard = this.dasboard.filter((column: any) => column.id !== columnId);
     this.dashboard$.next([...this.dasboard]);
   }
@@ -123,9 +69,9 @@ export class DashboardService {
   }
 
   changeLike(cardId: number, columnId: number, increase: boolean) {
-    this.dasboard = this.dasboard.map((column) => {
+    this.dasboard = this.dasboard.map((column: any) => {
       if (column.id === columnId) {
-        const list = column.list.map((card) => {
+        const list = column.list.map((card: any) => {
           if (card.id === cardId) {
             if (increase) {
               card.like++;
@@ -166,12 +112,12 @@ export class DashboardService {
     this.dashboard$.next([...this.dasboard]);
   }
 
-  deleteComment(columnId, itemId, commentId) {
-    this.dasboard = this.dasboard.map((column) => {
+  deleteComment(columnId: number, itemId: number, commentId: number) {
+    this.dasboard = this.dasboard.map((column: any) => {
       if (column.id === columnId) {
-        const list = column.list.map((item) => {
+        const list = column.list.map((item: any) => {
           if (item.id === itemId) {
-            item.comments = item.comments.filter((comment) => {
+            item.comments = item.comments.filter((comment: any) => {
               return comment.id !== commentId
             })
           }

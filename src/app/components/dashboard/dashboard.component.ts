@@ -52,7 +52,7 @@ export class DashboardComponent implements OnInit {
     this.dashboardService.addComment(columnId, event.id, event.text)
   }
 
-  onDeleteComment(comment, columnId, item) {
+  onDeleteComment(comment: any, columnId: number, item: any) {
     this.dashboardService.deleteComment(columnId, item.id, comment.id)
   }
 

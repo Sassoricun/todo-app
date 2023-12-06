@@ -7,7 +7,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class DashboardItemComponent implements OnInit {
 
-  @Input() item;
+  @Input() item: any;
   @Output() emitText: EventEmitter<{ id: number; text: string }> = new EventEmitter();
   @Output() emitCardItem: EventEmitter<{ card: any; increase: boolean }> = new EventEmitter();
   @Output() emitDeleteCard: EventEmitter<number> = new EventEmitter();

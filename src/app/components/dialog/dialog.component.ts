@@ -9,7 +9,7 @@ import { DialogBodyComponent } from '../dialog-body/dialog-body.component';
 })
 export class DialogComponent implements OnInit {
   @Output() emitText: EventEmitter<any> = new EventEmitter()
-  @Input() question: string;
+  @Input() question: any;
 
   constructor(public dialog: MatDialog) { }
 

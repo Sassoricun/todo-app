@@ -20,8 +20,6 @@ export class ColorPanelComponent implements OnInit {
   colorPickerOpen: boolean = false;
 
   colorsData = Object.values(colors)
-
-
   constructor() {
 
   }
