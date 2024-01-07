@@ -2,6 +2,16 @@
   <button mat-icon-button (click)="collapsed.set(!collapsed())">
     <mat-icon>menu</mat-icon>
   </button>
+  <div class="log-header">
+    <span class="material-symbols-outlined">waves</span>
+    <p class="logo-name">Whallo</p>
+  </div>
+  <ng-container *ngIf="authService.currentUser$ | async as user">
+    <button mat-button (click)="logout()" class="icon-text">
+      <mat-icon class="icon-logout">logout</mat-icon>
+      Logout
+    </button>
+  </ng-container>
 </mat-toolbar>
 <mat-sidenav-container>
   <mat-sidenav opened mode="side" [style.width]="sidenavWidth()">

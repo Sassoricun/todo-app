@@ -1,6 +1,8 @@
 mat-toolbar {
   position: relative;
   z-index: 5;
+  display: flex;
+  justify-content: space-between;
 }
 
 .content {
@@ -14,4 +16,22 @@ mat-sidenav-container {
 mat-sidenav,
 mat-sidenav-content {
   transition: all 500ms ease-in-out;
+}
+
+.icon-logout {
+  font-size: 20px !important;
+}
+
+.icon-text {
+  font-size: 16px;
+}
+
+.log-header {
+  display: flex;
+  align-items: center;
+  font-size: 30px;
+
+  p {
+    margin-left: 10px;
+  }
 }

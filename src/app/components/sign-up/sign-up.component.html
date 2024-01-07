@@ -1,0 +1,53 @@
+<div class="logo">
+  <span class="material-symbols-outlined">waves</span>
+  <p class="logo-name">Whallo</p>
+</div>
+<section class="section-login">
+  <div class="form-container mat-elevation-z5">
+    <div class="login-top">
+      <span class="material-symbols-outlined">login</span>
+      <h1 class="title-login">Sign Up a New User!</h1>
+    </div>
+    <form [formGroup]="signUpForm" (ngSubmit)="submit()">
+      <mat-form-field class="email-input">
+        <input matInput placeholder="Name" formControlName="name" />
+        <mat-error *ngIf="name?.errors?.['required']">
+          Name is required
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="email-input">
+        <input matInput placeholder="Email address" formControlName="email" />
+        <mat-error *ngIf="email?.errors?.['required']">
+          Email is required
+        </mat-error>
+        <mat-error *ngIf="email?.errors?.['email']">
+          Please enter a correct email format
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="email-input">
+        <input matInput placeholder="Password" formControlName="password" type="password" />
+        <mat-error *ngIf="password?.errors?.['required']">
+          Password is required
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="email-input">
+        <input matInput placeholder="Confirm Password" formControlName="confirmPassword" type="password" />
+        <mat-error *ngIf="confirmPassword?.errors?.['required']">
+          Confirm Password is required
+        </mat-error>
+      </mat-form-field>
+      <mat-error *ngIf="signUpForm.errors?.['passwordsDontMatch']">
+        Passwords should match
+      </mat-error>
+      <div class="center">
+        <button mat-raised-button color="primary" type="submit">
+          Sign Up!
+        </button>
+      </div>
+    </form>
+  </div>
+  <span class="gif">
+    <p class="line"></p>
+  </span>
+  <span class="name-tag">@by Paul</span>
+</section>
