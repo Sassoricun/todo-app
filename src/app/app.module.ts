@@ -37,6 +37,8 @@ import { HotToastModule } from '@ngneat/hot-toast';
 import { provideStorage, getStorage } from '@angular/fire/storage';
 import { ProfileComponent } from './components/profile/profile.component';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { EditModalComponent } from './components/edit-modal/edit-modal.component';
+import { QuillModule } from 'ngx-quill';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,8 @@ import { provideFirestore, getFirestore } from '@angular/fire/firestore';
     ColorPanelComponent,
     LoginComponent,
     SignUpComponent,
-    ProfileComponent
+    ProfileComponent,
+    EditModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -79,7 +82,8 @@ import { provideFirestore, getFirestore } from '@angular/fire/firestore';
     provideAuth(() => getAuth()),
     provideStorage(() => getStorage()),
     provideFirestore(() => getFirestore()),
-    HotToastModule.forRoot()
+    HotToastModule.forRoot(),
+    QuillModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

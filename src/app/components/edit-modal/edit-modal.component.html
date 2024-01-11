@@ -1,0 +1,15 @@
+<div class="modal-top">
+  <div>
+    <h2 class="modal-title" (click)="editTitle = true" *ngIf="!editTitle">{{modalTitle}}</h2>
+    <input *ngIf="editTitle" [(ngModel)]="modalTitle" (blur)="editTitle = false" [ngClass]="{'custom-input': true}" />
+  </div>
+  <mat-icon class="modal-close" color="primary" (click)="onCancel()">close</mat-icon>
+</div>
+
+<mat-dialog-content>
+  <quill-editor [(ngModel)]="editedText"></quill-editor>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-raised-button color="primary" (click)="onSave()">Save</button>
+</mat-dialog-actions>
