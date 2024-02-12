@@ -1,0 +1,62 @@
+.form-container {
+  display: block;
+  max-width: 500px;
+  margin: auto;
+  background-color: #fff;
+  border-left: 8px solid #607d8b;
+  border-radius: 6px;
+  padding: 48px;
+  margin-top: 30px;
+}
+
+.profile-title {
+  text-align: center;
+  color: #607d8b;
+  font-weight: 500;
+}
+
+.profile-image>img {
+  border-radius: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.profile-image {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-image>button {
+  position: absolute;
+  bottom: 5px;
+  right: 35%;
+}
+
+.mat-mdc-fab.mat-accent,
+.mat-mdc-mini-fab.mat-accent {
+  --mdc-fab-container-color: #607d8b;
+  --mdc-fab-icon-color: #fff;
+  --mat-mdc-fab-color: #fff;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.margin-top {
+  margin-top: 30px;
+}
+
+.form-bottom {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-btn {
+  display: block;
+  width: 100px;
+  margin: 0 auto;
+}

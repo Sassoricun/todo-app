@@ -1,5 +1,8 @@
-import { Component, Input, computed, signal } from '@angular/core';
+import { Component, Input, OnInit, computed, signal } from '@angular/core';
 import { Route } from '@angular/router';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import { UsersService } from 'src/app/services/users.service';
+
 
 export type MenuItem = {
   icon: string;
@@ -12,7 +15,9 @@ export type MenuItem = {
   templateUrl: './sidenav.component.html',
   styleUrls: ['./sidenav.component.scss']
 })
-export class SidenavComponent {
+export class SidenavComponent implements OnInit {
+
+  user$ = this.usersService.currentUserProfile$;
 
   sideNavCollapsed = signal(false);
   @Input() set collapsed(val: boolean) {
@@ -21,14 +26,14 @@ export class SidenavComponent {
 
   menuItems = signal<MenuItem[]>([
     {
+      icon: 'account_box',
+      label: 'Profile',
+      route: 'profile',
+    },
+    {
       icon: 'dashboard',
       label: 'Dashboard',
       route: 'dashboard',
-    },
-    {
-      icon: 'video_library',
-      label: 'any text',
-      route: 'any text',
     },
     {
       icon: 'analytics',
@@ -43,4 +48,12 @@ export class SidenavComponent {
   ]);
 
   profilePicSize = computed(() => this.sideNavCollapsed() ? '32' : '100');
+  constructor(public authService: AuthenticationService, private usersService: UsersService) { }
+
+  ngOnInit(): void {
+
+  }
+  get currentUser() {
+    return this.authService.currentUser$;
+  }
 }

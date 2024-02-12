@@ -18,7 +18,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ChatComponent } from './components/chat/chat.component';
 import { CdkDrag, CdkDropList, CdkDropListGroup, } from '@angular/cdk/drag-drop';
 import { DashboardItemComponent } from './components/dashboard-item/dashboard-item.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
@@ -28,6 +28,15 @@ import { DialogBodyComponent } from './components/dialog-body/dialog-body.compon
 import { MatDialogModule } from '@angular/material/dialog';
 import { ColorPanelComponent } from './components/color-panel/color-panel.component';
 import { MatMenuModule } from '@angular/material/menu';
+import { LoginComponent } from './components/login/login.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { getAuth, provideAuth } from '@angular/fire/auth';
+import { environment } from 'src/environments/environment';
+import { HotToastModule } from '@ngneat/hot-toast';
+import { provideStorage, getStorage } from '@angular/fire/storage';
+import { ProfileComponent } from './components/profile/profile.component';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -40,7 +49,10 @@ import { MatMenuModule } from '@angular/material/menu';
     CommentItemComponent,
     DialogComponent,
     DialogBodyComponent,
-    ColorPanelComponent
+    ColorPanelComponent,
+    LoginComponent,
+    SignUpComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +73,13 @@ import { MatMenuModule } from '@angular/material/menu';
     MatSelectModule,
     MatInputModule,
     MatDialogModule,
-    MatMenuModule
+    MatMenuModule,
+    ReactiveFormsModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideStorage(() => getStorage()),
+    provideFirestore(() => getFirestore()),
+    HotToastModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
