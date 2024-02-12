@@ -6,19 +6,7 @@ import { switchMap, mergeMap } from 'rxjs';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { UsersService } from 'src/app/services/users.service';
 
-// Валідатор для порівняння полів password і confirmPassword.
-export function passwordsMatchValidator(): ValidatorFn {
-  return (control: AbstractControl): ValidationErrors | null => {
-    const password = control.get('password')?.value;
-    const confirmPassword = control.get('confirmPassword')?.value;
-    if (password && confirmPassword && password !== confirmPassword) {
-      return {
-        passwordsDontMatch: true,
-      };
-    }
-    return null;
-  };
-}
+import { passwordsMatchValidator } from './password-helper'
 
 @Component({
   selector: 'app-sign-up',
