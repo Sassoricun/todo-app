@@ -14,22 +14,26 @@ import { passwordsMatchValidator } from './password-helper'
   styleUrls: ['./sign-up.component.scss']
 })
 export class SignUpComponent implements OnInit {
-
+  // Створюємо FormGroup для реєстрації, який містить FormControl для name, email, password та confirmPassword.
   signUpForm = new FormGroup({
     name: new FormControl('', Validators.required),
     email: new FormControl('', [Validators.email, Validators.required]),
     password: new FormControl('', Validators.required),
     confirmPassword: new FormControl('', Validators.required),
   },
-    { validators: passwordsMatchValidator() }
+    { validators: passwordsMatchValidator() } // Використовуємо валідатор для порівняння паролів.
   );
 
-  constructor(private authService: AuthenticationService, private toast: HotToastService, private router: Router, private usersService: UsersService) { }
+  constructor(
+    private authService: AuthenticationService,
+    private toast: HotToastService,
+    private router: Router,
+    private usersService: UsersService
+  ) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { }
 
-  }
-
+  // Методи для отримання значень FormControl.
   get name() {
     return this.signUpForm.get('name');
   }
@@ -46,13 +50,15 @@ export class SignUpComponent implements OnInit {
     return this.signUpForm.get('confirmPassword');
   }
 
+  // Метод, який викликається при натисканні кнопки "Submit".
   submit() {
     const { name, email, password } = this.signUpForm.value;
 
     if (!this.signUpForm.valid || !name || !password || !email) {
-      return;
+      return; // Якщо форма не валідна, нічого не робимо.
     }
 
+    // Викликаємо метод сервісу для реєстрації нового користувача.
     this.authService
       .signUp(email, password)
       .pipe(
@@ -62,10 +68,12 @@ export class SignUpComponent implements OnInit {
       )
       .subscribe(
         () => {
+          // Відображаємо повідомлення про успішну реєстрацію та переходимо на домашню сторінку.
           this.toast.success('Congrats! You are all signed up');
           this.router.navigate(['/home']);
         },
         (error) => {
+          // Відображаємо повідомлення про помилку в разі невдачі.
           this.toast.error(`${error.message}`);
         }
       );
